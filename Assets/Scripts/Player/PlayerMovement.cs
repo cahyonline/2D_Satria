@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private BoxCollider2D boxCollider;
     private float wallJumpCooldown;
     private float horizontalInput;
+    float TimerGr = 0;
 
     private void Awake()
     {
@@ -24,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(TimerGr);
         horizontalInput = Input.GetAxis("Horizontal");
 
         //Flip player when moving left-right
@@ -54,12 +56,25 @@ public class PlayerMovement : MonoBehaviour
         }
         else
             wallJumpCooldown += Time.deltaTime;
+
+        if (!isGrounded())
+        {
+            TimerGr += Time.deltaTime;
+            if (TimerGr >= 0.20f) body.gravityScale = 20;
+
+        } 
+        else 
+        {
+            body.gravityScale = 7;
+            TimerGr = 0;
+        }
     }
 
     private void Jump()
     {
         if (isGrounded())
         {
+            
             body.velocity = new Vector2(body.velocity.x, jumpPower);
             anim.SetTrigger("jump");
         }
