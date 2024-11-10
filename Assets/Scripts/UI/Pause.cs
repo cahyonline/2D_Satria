@@ -3,40 +3,39 @@ using UnityEngine.SceneManagement;
 
 public class PauseGame : MonoBehaviour
 {
-    // Nama scene yang akan dituju ketika pause
-    [SerializeField] private string pauseSceneName = "PauseScene";
+    [SerializeField] private GameObject pauseMenu;
 
     private bool isPaused = false;
 
+    void Start()
+    {
+        pauseMenu.SetActive(false);
+    }
+
     void Update()
     {
-        // Mengecek apakah tombol Escape ditekan
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (!isPaused)
-            {
-                Pause();
+        if (Input.GetKeyDown(KeyCode.Escape)){
+            if (isPaused){
+                Resume();
+                
             }
             else
-            {
-                Resume();
-            }
+            Pause();
+
         }
     }
 
-    // Fungsi untuk pause game
     private void Pause()
     {
-        Time.timeScale = 0; // Menghentikan waktu
-        SceneManager.LoadScene(pauseSceneName, LoadSceneMode.Additive); // Memuat scene pause secara additive
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0; 
         isPaused = true;
     }
 
-    // Fungsi untuk resume game
     public void Resume()
     {
-        Time.timeScale = 1; // Melanjutkan waktu
-        SceneManager.UnloadSceneAsync(pauseSceneName); // Mengeluarkan scene pause
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1f; 
         isPaused = false;
     }
 }
