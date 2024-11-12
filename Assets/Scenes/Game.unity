@@ -1006,6 +1006,22 @@ PrefabInstance:
       propertyPath: components.Array.data[1]
       value: 
       objectReference: {fileID: 1051546523}
+    - target: {fileID: 2320884371343920475, guid: 076bde4636103c540b8846bd470233c9, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320884371343920475, guid: 076bde4636103c540b8846bd470233c9, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5555556
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320884371343920475, guid: 076bde4636103c540b8846bd470233c9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 979646926, guid: 1e1ce38bcff1a594cb61c1feaccd6fab, type: 3}
+    - target: {fileID: 2320884371343920475, guid: 076bde4636103c540b8846bd470233c9, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7248905441483246476, guid: 076bde4636103c540b8846bd470233c9, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.13
